@@ -3,8 +3,19 @@ import router from '@/router';
 import { Message, Loading } from 'element-ui'
 import store from '@/store'
 
+const env = process.env.NODE_ENV;
+let baseURL = '';
+// 默认是本地环境
+if(env==='production'){  // 生产环境
+  baseURL = 'http://47.114.61.247:18081';
+}else if(env==='development'){ // 测试环境
+  baseURL = 'http://121.196.18.151:18081';
+}else{  // 本地环境
+  baseURL = 'http://121.196.18.151:18081';
+}
 // 创建axios实例
 const service = axios.create({
+  baseURL: baseURL,
   timeout: 5000 // 请求超时时间
 })
 // request拦截器

@@ -11,17 +11,23 @@ const productionGzipExtensions = ['js', 'css']
 function resolve(dir) {
     return path.join(__dirname, dir)
 }
-const proxyTargetMap = {
-    prod: 'http://47.114.61.247:18081',
-    randy: 'http://121.196.18.151:18081',
-    peter: 'http://47.114.61.247:18081'
+
+const env = process.env.NODE_ENV;
+let proxyTarget = '';
+// 默认是本地环境
+if(env==='production'){  // 生产环境
+    proxyTarget = 'http://47.114.61.247:18081';
+}else if(env==='development'){ // 测试环境
+    proxyTarget = 'http://121.196.18.151:18081';
+}else{  // 本地环境
+    proxyTarget = 'http://121.196.18.151:18081';
 }
-let proxyTarget = proxyTargetMap[process.env.API_TYPE] || proxyTargetMap.prod
+
 let publicPath = process.env.NODE_ENV === 'production' ? '/' : '/'
 let dllPublishPath = '/vendor'
 module.exports = {
     publicPath: publicPath,
-    outputDir: 'dist',
+    outputDir: process.env.NODE_ENV === 'development' ? 'devdist' : 'dist',
 
     // 放置静态资源的地方 (js/css/img/font/...)
     // assetsDir: '',

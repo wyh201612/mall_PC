@@ -5,9 +5,11 @@
   "author": "",
   "scripts": {
     "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "testbuild": "vue-cli-service build --mode development",
+    "probuild": "vue-cli-service build --mode production",
     "build:prod": "cross-env API_TYPE=randy vue-cli-service serve",
     "build:stage": "cross-env API_TYPE=peter vue-cli-service serve",
-    "build": "vue-cli-service build",
     "analyze": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "dll": "webpack -p --progress --config ./webpack.dll.conf.js"
