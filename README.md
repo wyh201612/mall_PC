@@ -18,11 +18,11 @@
 1. 安装包（这里需要使用npm进行安装，如果用cnpm或者yarn会有热更新失效的问题）
    npm install 
 2. 开发运行
-  npm run serve:randy
-3. 生产打包
-  npm run dll (仅需运行一次)
-  npm run build
+  npm run dev
+3. 测试打包
   npm run testbuild (测试环境)
+4. 生产打包
+  npm run build
   npm run probuild (线上环境)
 
  #### 项目分析
