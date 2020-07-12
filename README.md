@@ -22,6 +22,8 @@
 3. 生产打包
   npm run dll (仅需运行一次)
   npm run build
+  npm run testbuild (测试环境)
+  npm run probuild (线上环境)
 
  #### 项目分析
   npm run analyze
